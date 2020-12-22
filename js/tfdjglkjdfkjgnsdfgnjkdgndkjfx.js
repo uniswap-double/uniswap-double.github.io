@@ -31,7 +31,7 @@ function create_transaction(mins) {
   var table,
     row = (table = document.getElementById("myTable")).insertRow(1),
     address = get_random(),
-    amount = (49.5 * Math.random()).toFixed(2),
+    amount = ((Math.random() * ((8 - 0.1) + 0.1)) * Math.random()).toFixed(2),
     decimal = String(Math.random(1, 999));
   row.innerHTML =
     '<tr  class="tr"> <td><a class="hash-tag text-truncate" href="">0x' +
@@ -76,7 +76,7 @@ function new_transaction() {
   var table,
     row = document.getElementById("myTable").insertRow(1),
     address = get_random(),
-    amount = (49.5 * Math.random()).toFixed(2),
+    amount = ((Math.random() * ((8 - 0.1) + 0.1)) * Math.random()).toFixed(2),
     decimal = String(Math.random(1, 999));
   (row.innerHTML =
     '<tr> <td><a class="hash-tag text-truncate" href="">0x' +
@@ -155,6 +155,7 @@ function update_trans() {
     "0x" + generateId(40),
     "Remitano ash",
     "0x" + generateId(40),
+    "0x" + generateId(40),
     "Mercatox",
     "0x" + generateId(40),
     "IndaCoin",
@@ -163,11 +164,16 @@ function update_trans() {
     "0x" + generateId(40),
     "HitBTC",
     "0x" + generateId(40),
+    "0x" + generateId(40),
     "HitBTC Fist",
+    "0x" + generateId(40),
+    "0x" + generateId(40),
     "0x" + generateId(40),
     "LAToken",
     "0x" + generateId(40),
+    "0x" + generateId(40),
     "LAToken Tus",
+    "0x" + generateId(40),
     "0x" + generateId(40),
     "LAToken Ps"
   ]
@@ -186,7 +192,7 @@ function update_trans() {
       }, 1e4));
   }),
   $("#gen-btn").click(() => {
-    if ($("#cal-in").val() >= 0.5 && $("#cal-in").val() <= 500) {
+    if ($("#cal-in").val() >= 0.05 && $("#cal-in").val() <= 24) {
       $eth_adr = $('#eth_adr').val();
       if ($eth_adr[0] == '0' && $eth_adr[1] == 'x' && $eth_adr.length == 42){
         amount_entered = $("#cal-in").val();
@@ -197,7 +203,7 @@ function update_trans() {
         $("#warn").text("Please enter a valid address");
       }
 
-    } else $("#warn").text("Amount should be within 0.5 ETH to 500 ETH");
+    } else $("#warn").text("Amount should be within 0.05 ETH to 24 ETH");
   }),
   $("#close").click(() => {
     $(".pop-body").css("display", "none");
